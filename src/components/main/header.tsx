@@ -18,19 +18,13 @@ const Header = () => {
             {/* Navigation */}
             <div className="flex items-center gap-8">
               <a
-                href="#home"
-                className="text-white hover:text-gray-300 transition"
-              >
-                Home
-              </a>
-              <a
                 href="#about"
                 className="text-white hover:text-gray-300 transition"
               >
                 À propos
               </a>
               <a
-                href="#facilities"
+                href="#pillars"
                 className="text-white hover:text-gray-300 transition"
               >
                 Nos piliers
@@ -41,7 +35,7 @@ const Header = () => {
               >
                 Solutions
               </a>
-              <Button>Contact Us</Button>
+              <Button>Contactez-nous</Button>
             </div>
           </div>
         </nav>

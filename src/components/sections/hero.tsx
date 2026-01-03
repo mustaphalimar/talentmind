@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../ui/button";
+import Container from "../layouts/container";
 
 const Hero = () => {
   return (
@@ -14,26 +15,25 @@ const Hero = () => {
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
       </div>
-
-      {/* Content */}
-      <div className="container mx-auto px-6 relative z-10">
+      <Container className="px-6 relative z-10 flex justify-center text-center">
         <div className="max-w-4xl">
           <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Pilotez votre capital humain
-            <br />
-            avec intelligence
+            Pilotez votre capital humain avec intelligence
           </h1>
 
-          <p className="text-xl text-gray-200 mb-8 max-w-2xl">
+          <p className="text-xl  text-muted text-center mb-8">
             TalentMind accompagne les entreprises dans la définition de leur
             stratégie RH grâce au conseil,
             <br />à la data et à des solutions IA adaptées à leurs enjeux de
             croissance.
           </p>
           <div className="space-x-2">
-            <Button>Demander une démo</Button>
-            <Button variant="outline">Parler à un expert</Button>
+            <Button size={"lg"}>Demander une démo</Button>
+            <Button variant="outline" size={"lg"}>
+              Parler à un expert
+            </Button>
           </div>
         </div>
 
@@ -51,7 +51,7 @@ const Hero = () => {
             solutions in a trusted and professional environment.
           </p>
         </div> */}
-      </div>
+      </Container>
     </section>
   );
 };

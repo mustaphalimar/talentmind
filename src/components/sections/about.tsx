@@ -1,14 +1,15 @@
 import React from "react";
 import Container from "../layouts/container";
+import { Badge } from "../ui/badge";
+import { Quote } from "lucide-react";
+import SectionTitle from "../main/section-title";
 
 const About = () => {
   return (
-    <section className="min-h-[80vh] py-20">
+    <section className="min-h-[80vh] py-20" id="about">
       <Container>
-        <h1 className="text-4xl border-b p-1 font-semibold">
-          À propos de nous
-        </h1>
-        <div className="mt-14 text-lg flex flex-col gap-6">
+        <SectionTitle text="À propos de nous" />
+        <div className="mt-16 text-xl flex flex-col gap-8 ">
           <p>
             TalentMind est un cabinet de conseil spécialisé dans le pilotage
             stratégique des ressources humaines et la valorisation du capital
@@ -19,10 +20,13 @@ const About = () => {
             talents grâce à une approche combinant expertise RH, technologies
             innovantes et intelligence artificielle.
           </p>
-          <p>
-            Notre mission est de transformer la fonction RH en un véritable
-            levier de performance durable.
-          </p>
+          <div className="flex justify-center gap-2 mt-16 ">
+            <Quote className="text-muted-foreground" size={15} />
+            <p className="mt-4 text-2xl text-muted-foreground">
+              Notre mission est de transformer la fonction RH <br /> en un
+              véritable levier de performance durable.
+            </p>
+          </div>
         </div>
       </Container>
     </section>
