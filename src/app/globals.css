@@ -200,3 +200,13 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.sidebar {
+  /* You can adjust the color and transparency */
+
+  /* Apply the blur effect to the background */
+  background: rgba(0, 0, 0, 0.5);
+
+  backdrop-filter: blur(10px);
+  /* Ensure the content is not affected by the blur */
+}

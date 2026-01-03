@@ -30,7 +30,7 @@ const pillars = [
 
 const Pillars = () => {
   return (
-    <section className="min-h-screen" id="pillars">
+    <section className="min-h-screen py-20" id="pillars">
       <Container>
         <SectionTitle text="Nos piliers" />
         <main className="mt-16 max-w-md lg:max-w-full grid lg:grid-cols-3 gap-4 mx-auto">
