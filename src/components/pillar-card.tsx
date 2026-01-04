@@ -14,15 +14,12 @@ interface Props {
 
 const PillarCard: React.FC<Props> = ({ pillar }) => {
   return (
-    <Card className="hover:shadow-xl hover:-translate-y-1 transition-all">
-      <CardHeader>
-        <pillar.icon className="h-6 w-6 text-primary" />
-        <CardTitle className="text-xl">{pillar.title}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-muted-foreground">{pillar.content}</p>
-      </CardContent>
-    </Card>
+    <div className=" hover:-translate-y-1 transition-all flex flex-col gap-4 items-center text-center">
+      <pillar.icon className=" text-primary" size={45} />
+      <p className="text-xl font-semibold">{pillar.title}</p>
+
+      <p className="text-muted-foreground">{pillar.content}</p>
+    </div>
   );
 };
 
