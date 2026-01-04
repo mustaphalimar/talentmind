@@ -4,7 +4,7 @@ import Container from "../layouts/container";
 
 const Hero = () => {
   return (
-    <section className=" min-h-screen flex items-center">
+    <section className="min-h-screen flex items-center">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <div
@@ -19,17 +19,17 @@ const Hero = () => {
       </div>
       <Container className="px-6 relative z-10 flex justify-center text-center">
         <div className="max-w-4xl">
-          <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl xl:text-7xl  font-bold text-white mb-6 leading-tight">
             Pilotez votre capital humain avec intelligence
           </h1>
 
-          <p className="text-xl  text-muted text-center mb-8">
+          <p className="lg:text-xl  text-muted text-center mb-8">
             TalentMind accompagne les entreprises dans la définition de leur
             stratégie RH grâce au conseil,
             <br />à la data et à des solutions IA adaptées à leurs enjeux de
             croissance.
           </p>
-          <div className="space-x-2">
+          <div className="flex gap-3 flex-col md:flex-row items-center justify-center">
             <Button size={"lg"}>Demander une démo</Button>
             <Button variant="outline" size={"lg"}>
               Parler à un expert

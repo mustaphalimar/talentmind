@@ -1,12 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Container from "../layouts/container";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import Image from "next/image";
 import Logo from "./logo";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useSidebar } from "@/hooks/use-sidebar";
+import Link from "next/link";
 
 export const navItems = [
   {
@@ -57,7 +58,7 @@ const Header = () => {
       className={cn(
         "fixed top-0 p-2 left-0 right-0 z-20 transition-all duration-300",
         {
-          "bg-white/95 bg-opacity-70 backdrop-blur-sm shadow-md": isScrolled,
+          "bg-black bg-opacity-70 backdrop-blur-sm shadow-md": isScrolled,
           "bg-transparent": !isScrolled,
         }
       )}
@@ -92,7 +93,9 @@ const Header = () => {
                     </a>
                   );
                 })}
-                <Button>Contactez-nous</Button>
+                <Link href="/contact" className={buttonVariants()}>
+                  Contactez-nous
+                </Link>
               </ul>
               <button className="flex md:hidden cursor-pointer">
                 {sidebar.visible ? (

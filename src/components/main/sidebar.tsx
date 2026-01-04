@@ -28,12 +28,10 @@ const Sidebar = () => {
     },
   };
 
-  const handleHide = () => {
-    sidebar.onHide();
-  };
   return (
     <motion.aside
       initial="closed"
+      // @ts-expect-error asd
       variants={sidebarVariants}
       animate={sidebar.visible ? "open" : "closed"}
       className="sidebar fixed left-0 top-0 z-20 h-screen w-full px-4 py-10 md:hidden"
