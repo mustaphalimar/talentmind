@@ -23,6 +23,7 @@ import {
 } from "./ui/select";
 import { useAppContext } from "./providers/app-context-provider";
 import { submitContact } from "@/lib/api/contact";
+import { Spinner } from "./ui/spinner";
 
 const formSchema = z.object({
   fullName: z.string().min(2, {
@@ -202,10 +203,17 @@ const ContactForm = () => {
         </div>
         <Button
           type="submit"
-          className="mt-6 w-full"
+          className="mt-6 w-full flex gap-2 items-center"
           disabled={mutation.isPending}
         >
-          {mutation.isPending ? "Envoi en cours..." : "Envoyer"}
+          {mutation.isPending ? (
+            <>
+              <Spinner />
+              <span>Envoi en cours...</span>
+            </>
+          ) : (
+            "Envoyer"
+          )}
         </Button>
       </form>
     </Form>

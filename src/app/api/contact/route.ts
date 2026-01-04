@@ -17,7 +17,6 @@ export async function POST(request: Request) {
   try {
     const body: ContactFormData = await request.json();
 
-    // Validate required fields
     if (
       !body.fullName ||
       !body.company ||
@@ -32,7 +31,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(body.email)) {
       return NextResponse.json(
@@ -41,13 +39,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: Here you would typically:
-    // - Save to database
-    // - Send email notification
-    // - Integrate with CRM
-    // - etc.
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
-    // For now, just log and return success
     console.log("Contact form submission:", body);
 
     return NextResponse.json(

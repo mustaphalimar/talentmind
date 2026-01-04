@@ -1,13 +1,12 @@
 "use client";
 
-import { useSidebar } from "@/hooks/use-sidebar";
-import { motion } from "motion/react";
-import { navItems } from "./header";
-import Link from "next/link";
-import { Button, buttonVariants } from "../ui/button";
 import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
+import Link from "next/link";
 import { useEffect } from "react";
 import { useAppContext } from "../providers/app-context-provider";
+import { buttonVariants } from "../ui/button";
+import { navItems } from "./header";
 
 const Sidebar = () => {
   const { sidebar } = useAppContext();

@@ -21,7 +21,9 @@ export async function submitContact(
 
   if (!response.ok) {
     const error: ContactError = await response.json();
-    throw new Error(error.error || "Failed to submit contact form");
+    throw new Error(
+      error.error || "Une erreur est survenue lors de l'envoi du formulaire"
+    );
   }
 
   return response.json();
