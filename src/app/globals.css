@@ -10,6 +10,7 @@
   --popover: oklch(0.9911 0 0);
   --popover-foreground: oklch(0.4386 0 0);
   --primary: oklch(0.4951 0.1171 277.7171);
+  --primary-darker: oklch(0.4116 0.1171 277.7171);
   --primary-foreground: oklch(0.2626 0.0147 166.4589);
   --secondary: oklch(0.994 0 0);
   --secondary-foreground: oklch(0.2046 0 0);
@@ -70,6 +71,7 @@
   --popover: oklch(0.2603 0 0);
   --popover-foreground: oklch(0.7348 0 0);
   --primary: oklch(0.4951 0.1171 277.7171);
+  --primary-darker: oklch(0.4116 0.1171 277.7171);
   --primary-foreground: oklch(0.9213 0.0135 167.1556);
   --secondary: oklch(0.2603 0 0);
   --secondary-foreground: oklch(0.9851 0 0);
@@ -128,6 +130,7 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-primary-darker: var(--primary-darker);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -209,4 +212,8 @@ body {
 
   backdrop-filter: blur(10px);
   /* Ensure the content is not affected by the blur */
+}
+
+.no-scroll {
+  overflow-y: hidden;
 }

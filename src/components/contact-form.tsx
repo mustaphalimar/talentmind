@@ -2,6 +2,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useMutation } from "@tanstack/react-query";
 import {
   Form,
   FormControl,
@@ -20,6 +21,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+import { useAppContext } from "./providers/app-context-provider";
+import { submitContact } from "@/lib/api/contact";
 
 const formSchema = z.object({
   fullName: z.string().min(2, {
@@ -47,7 +50,7 @@ const formSchema = z.object({
   ),
   message: z
     .string()
-    .min(10, {
+    .min(2, {
       error: "Le message doit contenir au moins 10 caractères",
     })
     .max(1000, {
@@ -58,6 +61,8 @@ const formSchema = z.object({
 export type FormSchema = z.infer<typeof formSchema>;
 
 const ContactForm = () => {
+  const { showToast } = useAppContext();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -70,7 +75,26 @@ const ContactForm = () => {
     },
   });
 
-  const onSubmit = async (data: FormSchema) => {};
+  const mutation = useMutation({
+    mutationFn: submitContact,
+    onSuccess: () => {
+      showToast.success(
+        "Message envoyé",
+        "Votre message a été envoyé avec succès. Nous vous répondrons bientôt."
+      );
+      form.reset();
+    },
+    onError: (error: Error) => {
+      showToast.error(
+        "Erreur",
+        error.message || "Une erreur est survenue lors de l'envoi du formulaire"
+      );
+    },
+  });
+
+  const onSubmit = async (data: FormSchema) => {
+    mutation.mutate(data);
+  };
 
   return (
     <Form {...form}>
@@ -176,8 +200,12 @@ const ContactForm = () => {
             )}
           />
         </div>
-        <Button type="submit" className="mt-6 w-full">
-          Envoyer
+        <Button
+          type="submit"
+          className="mt-6 w-full"
+          disabled={mutation.isPending}
+        >
+          {mutation.isPending ? "Envoi en cours..." : "Envoyer"}
         </Button>
       </form>
     </Form>

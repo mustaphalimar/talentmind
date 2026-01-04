@@ -91,7 +91,10 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ className }) => {
   return (
     <footer
-      className={cn("overflow-x-hidden bg-primary pt-6 text-white", className)}
+      className={cn(
+        "overflow-x-hidden bg-primary-darker pt-6 text-white",
+        className
+      )}
     >
       <Container>
         <div className="mt-10 flex flex-col justify-between lg:flex-row">

@@ -9,7 +9,7 @@ const About = () => {
     <section className="min-h-[80vh] py-20" id="about">
       <Container>
         <SectionTitle text="À propos de nous" />
-        <div className="mt-16 text-xl flex flex-col gap-8 ">
+        <div className="mt-10 md:text-xl flex flex-col gap-8 ">
           <p>
             TalentMind est un cabinet de conseil spécialisé dans le pilotage
             stratégique des ressources humaines et la valorisation du capital
@@ -22,7 +22,7 @@ const About = () => {
           </p>
           <div className="flex justify-center gap-2 mt-16 ">
             <Quote className="text-muted-foreground" size={15} />
-            <p className="mt-4 text-2xl text-muted-foreground">
+            <p className="mt-4 text-2xl text-center text-muted-foreground">
               Notre mission est de transformer la fonction RH <br /> en un
               véritable levier de performance durable.
             </p>

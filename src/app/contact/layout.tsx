@@ -2,12 +2,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact & Démonstration | TalentMind",
-  authors: [{ name: "Mustapha Limar" }],
-  creator: "Mustapha Limar",
-  keywords:
-    "Mustapha Limar, mustapha limar, tapham079, limarmustapha,mustaphalimar, tapham, limar",
   description:
-    "Mustapha Limar, mustapha limar, tapham079, limarmustapha,mustaphalimar, tapham, limar",
+    "Contactez TalentMind pour découvrir nos solutions RH et demander une démonstration de TalentMind Hub.",
 };
 
 export default function ContactPageLayout({

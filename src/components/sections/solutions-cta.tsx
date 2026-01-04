@@ -9,7 +9,7 @@ const SolutionsCTA = () => {
       <Container>
         <SectionTitle text="Besoin d'une solution adaptée à votre organisation ?" />
 
-        <div className="mt-16 space-y-10 flex flex-col items-center">
+        <div className="mt-10 space-y-10 flex flex-col ">
           <p className="text-lg">
             Nos experts vous accompagnent dans la mise en place de solutions RH
             sur mesure, adaptées à vos enjeux et à votre contexte.

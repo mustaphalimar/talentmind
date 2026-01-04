@@ -9,13 +9,13 @@ const Cta = () => {
       <Container>
         <SectionTitle text="Prêt à transformer votre stratégie RH ?" />
 
-        <div className="mt-16 space-y-10 flex flex-col items-center">
-          <p className="text-lg">
+        <div className="mt-10 space-y-10 flex flex-col">
+          <p className="md:text-lg">
             Découvrez comment TalentMind peut accompagner votre organisation
             avec des solutions sur mesure, innovantes et orientées résultats.
           </p>
 
-          <Button>Demander une démo</Button>
+          <Button className="w-fit">Demander une démo</Button>
         </div>
       </Container>
     </section>

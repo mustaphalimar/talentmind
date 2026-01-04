@@ -1,95 +1,81 @@
+"use client";
+
 import Container from "@/components/layouts/container";
 import SectionTitle from "@/components/main/section-title";
 import SolutionsCTA from "@/components/sections/solutions-cta";
 import SolutionsHero from "@/components/sections/solutions-hero";
-import { Brain, Check, CheckCircle } from "lucide-react";
-import { Database, Sparkles, BarChart3, Lightbulb } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Check, CheckCircle } from "lucide-react";
+import {
+  Database,
+  Sparkles,
+  BarChart3,
+  Lightbulb,
+  type LucideIcon,
+} from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { getSolutions } from "@/lib/api/solutions";
 
-const conseilRHList = [
-  {
-    id: 1,
-    text: "Définition de la stratégie RH et organisationnelle",
-  },
-  {
-    id: 2,
-    text: "Gestion et développement des talents",
-  },
-  {
-    id: 3,
-    text: "Mise en place de processus RH performants",
-  },
-  {
-    id: 4,
-    text: "Accompagnement du changement et conduite de transformation",
-  },
-  {
-    id: 5,
-    text: "Alignement RH – objectifs business",
-  },
-];
-const talentMindHubList = [
-  {
-    id: 1,
-    text: "CVthèque centralisée et intelligente",
-    icon: Database,
-    description: "Centralisez et organisez tous vos CV en un seul endroit",
-  },
-  {
-    id: 2,
-    text: "Matching de profils par IA",
-    icon: Sparkles,
-    description:
-      "Trouvez les candidats parfaits grâce à l'intelligence artificielle",
-  },
-  {
-    id: 3,
-    text: "Tableaux de bord RH et indicateurs de performance",
-    icon: BarChart3,
-    description: "Visualisez vos métriques RH en temps réel",
-  },
-  {
-    id: 4,
-    text: "Aide à la décision basée sur la data",
-    icon: Lightbulb,
-    description: "Prenez des décisions éclairées avec l'analyse de données",
-  },
-];
-
-const servicesMarocList = [
-  {
-    id: 1,
-    text: "Structuration et gestion RH locale",
-
-    description: "Centralisez et organisez tous vos CV en un seul endroit",
-  },
-  {
-    id: 2,
-    text: "Recrutement et intégration des équipes",
-
-    description:
-      "Trouvez les candidats parfaits grâce à l'intelligence artificielle",
-  },
-  {
-    id: 3,
-    text: "Formation et montée en compétences",
-
-    description: "Visualisez vos métriques RH en temps réel",
-  },
-  {
-    id: 4,
-    text: "Gestion administrative et opérationnelle",
-
-    description: "Prenez des décisions éclairées avec l'analyse de données",
-  },
-  {
-    id: 5,
-    text: "Accompagnement réglementaire et organisationnel",
-
-    description: "Prenez des décisions éclairées avec l'analyse de données",
-  },
-];
+const iconMap: Record<string, LucideIcon> = {
+  Database,
+  Sparkles,
+  BarChart3,
+  Lightbulb,
+};
 
 function SolutionsPage() {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["solutions"],
+    queryFn: getSolutions,
+  });
+
+  if (isLoading) {
+    return (
+      <main>
+        <SolutionsHero />
+        <section id="conseil-rh" className="py-20">
+          <Container>
+            <div className="w-fit">
+              <div className="flex items-center gap-2 p-1">
+                <Skeleton className="h-[10px] w-[10px] rounded-sm" />
+                <Skeleton className="h-8 md:h-10 w-64 md:w-96" />
+              </div>
+            </div>
+            <div className="mt-10 space-y-2">
+              <Skeleton className="h-6 w-full max-w-3xl" />
+              <Skeleton className="h-6 w-full max-w-2xl" />
+            </div>
+            <div className="mt-10">
+              <ul className="space-y-3 text-lg">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <Skeleton className="h-5 w-5 rounded-full mt-0.5 shrink-0" />
+                    <Skeleton className="h-6 flex-1" />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Container>
+        </section>
+      </main>
+    );
+  }
+
+  if (error) {
+    return (
+      <main>
+        <SolutionsHero />
+        <div className="py-20 text-center text-destructive">
+          Erreur lors du chargement des données
+        </div>
+      </main>
+    );
+  }
+
+  if (!data) {
+    return null;
+  }
+
   return (
     <main>
       <SolutionsHero />
@@ -97,17 +83,20 @@ function SolutionsPage() {
       <section id="conseil-rh" className="py-20">
         <Container>
           <SectionTitle text="Stratégies de gestion du capital humain" />
-          <p className="text-lg mt-10">
+          <p className="md:text-lg mt-10">
             Nous aidons les entreprises à structurer et optimiser leur fonction
             RH afin de répondre aux enjeux de performance, d&apos;engagement et
             de transformation.
           </p>
           <div className="mt-10">
-            <ul className="space-y-3 text-lg">
-              {conseilRHList.map((i) => (
+            <ul className="space-y-3 md:text-lg ">
+              {data.conseilRH.map((i) => (
                 <li key={i.id} className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
-                  <span>{i.text}</span>
+                  <CheckCircle
+                    className="text-primary mt-0.5 shrink-0"
+                    size={22}
+                  />
+                  <span className="">{i.text}</span>
                 </li>
               ))}
             </ul>
@@ -124,13 +113,13 @@ function SolutionsPage() {
           </p>
           <div className="mt-10">
             <div className="grid gap-4 md:grid-cols-2">
-              {talentMindHubList.map((item) => {
-                const Icon = item.icon;
+              {data.talentMindHub.map((item) => {
+                const Icon = iconMap[item.icon] || Database;
                 return (
                   <div key={item.id} className="flex gap-3">
-                    <Icon className="h-6 w-6 text-primary flex-shrink-0" />
+                    <Icon className="h-6 w-6 text-primary shrink-0" />
                     <div>
-                      <p className="font-medium text-lg">{item.text}</p>
+                      <p className="font-medium md:text-lg">{item.text}</p>
                       <p className="text-sm text-muted-foreground">
                         {item.description}
                       </p>
@@ -153,7 +142,7 @@ function SolutionsPage() {
           </p>
           <div className="mt-10">
             <ul className="grid gap-3 sm:grid-cols-2">
-              {servicesMarocList.map((item) => {
+              {data.servicesMaroc.map((item) => {
                 return (
                   <li key={item.id} className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-primary" />

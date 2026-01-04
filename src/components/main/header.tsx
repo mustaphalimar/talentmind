@@ -1,24 +1,23 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Container from "../layouts/container";
-import { Button, buttonVariants } from "../ui/button";
-import Image from "next/image";
-import Logo from "./logo";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { useSidebar } from "@/hooks/use-sidebar";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import Container from "../layouts/container";
+import { useAppContext } from "../providers/app-context-provider";
+import { buttonVariants } from "../ui/button";
+import Logo from "./logo";
 
 export const navItems = [
   {
     id: 1,
     label: "À propos",
-    href: "#about",
+    href: "/#about",
   },
   {
     id: 2,
     label: "Nos piliers",
-    href: "#pillars",
+    href: "/#pillars",
   },
   {
     id: 3,
@@ -30,7 +29,7 @@ export const navItems = [
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHeroScrolled, setIsHeroScrolled] = useState(false);
-  const sidebar = useSidebar();
+  const { sidebar } = useAppContext();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -98,7 +97,7 @@ const Header = () => {
                 </Link>
               </ul>
               <button className="flex md:hidden cursor-pointer">
-                {sidebar.visible ? (
+                {sidebar.isOpen ? (
                   <X
                     size={28}
                     onClick={sidebar.onHide}

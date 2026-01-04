@@ -16,9 +16,11 @@ const PillarCard: React.FC<Props> = ({ pillar }) => {
   return (
     <div className=" hover:-translate-y-1 transition-all flex flex-col gap-4 items-center text-center">
       <pillar.icon className=" text-primary" size={45} />
-      <p className="text-xl font-semibold">{pillar.title}</p>
+      <p className="text-lg md:text-xl font-semibold">{pillar.title}</p>
 
-      <p className="text-muted-foreground">{pillar.content}</p>
+      <p className="text-muted-foreground text-sm md:text-base">
+        {pillar.content}
+      </p>
     </div>
   );
 };
