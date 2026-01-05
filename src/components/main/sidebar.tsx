@@ -57,6 +57,12 @@ const Sidebar = () => {
     >
       <div className="flex h-full flex-col items-center justify-center border-white">
         <ul className="flex flex-col gap-6 text-white">
+          <li
+            className="text-4xl font-bold transition hover:text-primary"
+            onClick={sidebar.onHide}
+          >
+            <Link href="/">Accueil</Link>
+          </li>
           {navItems.map((item) => {
             return (
               <li
