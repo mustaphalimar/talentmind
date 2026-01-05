@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
-// @ts-expect-error asd
-import "./globals.css";
-import Providers from "@/components/providers/providers";
+import { Inter } from "next/font/google";
 import Header from "@/components/main/header";
 import Sidebar from "@/components/main/sidebar";
+import Providers from "@/components/providers/providers";
 import Footer from "@/components/sections/footer";
-
-
+import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",

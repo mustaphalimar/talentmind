@@ -28,3 +28,4 @@ export async function submitContact(
 
   return response.json();
 }
+
