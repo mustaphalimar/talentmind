@@ -37,6 +37,7 @@ function ContactPage() {
         </Container>
       </section>
 
+
       <section className="py-20" id="contact-form">
         <Container>
           <SectionTitle text="Contactez-nous" />

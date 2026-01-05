@@ -1,22 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
+// @ts-expect-error asd
 import "./globals.css";
 import Providers from "@/components/providers/providers";
 import Header from "@/components/main/header";
 import Sidebar from "@/components/main/sidebar";
 import Footer from "@/components/sections/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-});
 
 const inter = Inter({
   variable: "--font-inter",
